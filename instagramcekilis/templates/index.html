@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Giriş</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
+    <link href="css/all.min.css" rel="stylesheet" />
+	<link href="css/templatemo-style.css" rel="stylesheet" />
+		<script src="../static/js/jquery.min.js"></script>
+	<script src="../static/js/parallax.min.js"></script>
+</head>
+<!--
+
+Simple House
+
+https://templatemo.com/tm-539-simple-house
+
+-->
+<body onload=getLocation()> 
+<center>
+<p> Menüyü görmek için lütfen konum servislerini onaylayıp giriş yap butonuna basınız.</p>
+	
+	{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
+
+			<form action="/menu" method="post">
+				
+				<button type="submit" name="action" value="ceran">Giriş Yap</button>
+    </form>
+
+
+
+<p id="demo1"></p></center>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/parallax.min.js"></script>
+<script>
+var x = document.getElementById("demo1");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+
+}
+
+function showPosition(position) {
+  x.innerHTML = position.coords.latitude + 
+  "<br>" + position.coords.longitude;
+	$.ajax({
+    type: "POST",
+    url: "{{ url_for("get_post_json") }}",
+    contentType: "application/json",
+    data: JSON.stringify(x.innerHTML),
+    dataType: "json",
+    success: function(response) {
+        console.log(response);
+    },
+    error: function(err) {
+        console.log(err);
+    }
+});
+}
+
+</script>
+</body>
+</html>
