@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <title>Kriptonit Panel</title>
+
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="‘description" content="‘A" solutions="" focused="" management="" consultancy="" for="" organizations="" navigating="" disruption="" or="" growth.="" |="" (m)="" +91="" 99="" 206="" 10="" 736="" (e)="" leadwithchange@bullmonk.com="" ’="">
+    <meta property="‘og:description’" content="‘A" solutions="" focused="" management="" consultancy="" for="" organizations="" navigating="" disruption="" or="" growth.="" |="" (m)="" +91="" 99="" 206="" 10="" 736="" (e)="" leadwithchange@bullmonk.com’="">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./animate.css') }}">
+    <!-- link for favicon -->
+    <link rel="icon" type="image/png" href="https://amazingandcurious.com/wp-content/uploads/2018/03/cropped-bulb-favicon-2.png"> 
+   
+    <div class="baslik"><h7 class="change_head">Panel</h7></div>
+    <style>
+     .baslik{
+      position: absolute;
+      left: 500px;
+      top:  0px;
+    }
+    .balance{
+      position: absolute;
+      left: 500px;
+      top:  200px;
+    }  
+    </style>   
+
+<style>
+body {
+  background: rgb(0, 0, 0) !important;;
+}
+</style>
+
+<div class="url_len"> <font color="orange" face="monospace"> Hoş Geldiniz; {{user}}</font></div>
+			<style>
+				.url_len {
+					position: absolute;
+					left: 1200px;
+					top: 40px;
+				}
+			</style>
+
+<form action="/exit" method="post">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <button class="buton1 w3-button w3-xlarge w3-green" type="submit" name="exitt" value="cikis_yap">Çıkış Yap</button>
+    </form>
+    <form action="/spot" method="post">
+    <button class="buton3 w3-button w3-xlarge w3-green" type="submit" name="action" value="navi">Spot İşlemleri</button>
+    </form>
+    <form action="/margin" method="post">
+    <button class="buton10 w3-button w3-xlarge w3-green" type="submit" name="grafikk" value="grafik">Vadeli İşlemler</button>
+    </form>
+    <form action="/inducators" method="post">
+    <button class="buton4 w3-button w3-xlarge w3-green" type="submit" name="logg" value="log">İndikatörler</button>
+    </form>
+    <form action="/ai" method="post">
+    <button class="buton2 w3-button w3-xlarge w3-green" type="submit" name="actions" value="message">AI Yazılımları</button>
+    </form>
+
+	<style>
+        .buton1 {
+            position: absolute;
+            left: 1290px;
+            top: 70px;
+        }
+</style>
+<style>
+.buton2 {
+position: absolute;
+left: 880px;
+top: 70px;
+}
+</style>
+<style>
+.buton3 {
+position: absolute;
+left: 180px;
+top: 70px;
+}
+</style>
+<style>
+.buton4 {
+    position: absolute;
+    left: 0px;
+    top: 70px;
+}
+</style>
+<style>
+.buton10 {
+    position: absolute;
+    left: 1070px;
+    top: 70px;
+}
+</style>
+</head> 
+<script type="text/javascript" src="static/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="static/socket.io-1.3.5.min.js"></script>
+<body>
+    <div class="balance"><h7 class="change_head">Panel</h7></div>
+</body>
+<script type="text/javascript" charset="utf-8">
+    var mycount = 1;
+    var myData = {};
+    var testc = 1;
+    $(document).ready(function() {
+    namespace = '/carpi';
+        var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);    
+        socket.on('connect', function() {
+             socket.emit('my_event', {data: 'I\'m connected!'});
+        });
+        socket.on('my_response', function(msg) {
+            $('#values').html(msg.count)
+    $('#log').append('<br>' + $('<div/>').text('Received #' + msg.data + ': ' + msg.count).html())
+    var btc = msg.btc
+    console.log(btc)
+          });
+     });
+  </script>
